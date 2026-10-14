@@ -22,7 +22,7 @@ const fields = [
 function renderPicture(user, card) {
     const img = document.createElement("img");
     img.src = user.picture.large;
-    img.alt = "Фото: " + user.name.first + " " + user.name.last;
+    img.alt = "Photo: " + user.name.first + " " + user.name.last;
     card.appendChild(img);
 }
 
@@ -57,12 +57,12 @@ function setStatus(text, isError) {
 // Завантаження даних: fetch повертає Promise, далі ланцюжок .then()
 function loadUsers() {
     button.disabled = true;
-    setStatus("Завантаження...", false);
+    setStatus("Fetching...", false);
 
     fetch(API_URL)
         .then(function (response) {
             if (!response.ok) {
-                throw new Error("Сервер відповів зі статусом " + response.status);
+                throw new Error("Server responded with status " + response.status);
             }
             return response.json();
         })
@@ -71,10 +71,10 @@ function loadUsers() {
             data.results.forEach(function (user) {
                 usersEl.appendChild(createCard(user));
             });
-            setStatus("Успішно!", false);
+            setStatus("Successfully fetched!", false);
         })
         .catch(function (error) {
-            setStatus("Не вдалося отримати дані: " + error.message, true);
+            setStatus("Failed to fetch data: " + error.message, true);
         })
         .finally(function () {
             button.disabled = false;
