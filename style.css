@@ -1,0 +1,74 @@
+/* Лабораторна робота №6: стилі сторінки */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #3a4048;
+    color: #e8eaed;
+}
+
+.top {
+    padding: 14px 20px;
+    text-align: center;
+    background-color: #5a5f66;
+}
+
+#download-btn {
+    padding: 8px 22px;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #2b2f36;
+    border: 1px solid #1c1f24;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#download-btn:hover:not(:disabled) {
+    background-color: #1c1f24;
+}
+
+#download-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+#status {
+    margin: 10px 0 0;
+    font-size: 18px;
+}
+
+#status.error {
+    color: #ff8a80;
+}
+
+/* Картки користувачів в один ряд */
+.users {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-card {
+    flex: 1 1 20%;
+    min-width: 180px;
+    padding: 0 0 14px;
+    border-right: 1px solid #2b2f36;
+}
+
+.user-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+.user-card p {
+    margin: 0 0 10px;
+    padding: 0 10px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
